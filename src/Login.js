@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { login } from "./features/userSlice";
 import { auth } from "./firebase";
 import "./Login.css";
 
@@ -37,7 +38,7 @@ function Login() {
       .catch((error) => alert(error.message));
   };
 
-  const login = (e) => {
+  const loginToApp = (e) => {
     e.preventDefault();
 
     auth
@@ -87,7 +88,7 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" onClick={login}>
+        <button type="submit" onClick={loginToApp}>
           Sign In
         </button>
       </form>

@@ -9,13 +9,13 @@ import {
   SupervisorAccount,
 } from "@mui/icons-material";
 import "./Header.css";
-import { useDispatch } from "react-redux";
-import { logout } from "./features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "./features/userSlice";
 import { auth } from "./firebase";
 
 function Header() {
   const dispatch = useDispatch();
-
+  const user = useSelector(selectUser);
   const logoutApp = () => {
     dispatch(logout());
     auth.signOut();
@@ -41,13 +41,7 @@ function Header() {
         <HeaderOption title="Jobs" Icon={BusinessCenter} />
         <HeaderOption title="Messaging" Icon={Chat} />
         <HeaderOption title="Notifications" Icon={Notifications} />
-        <HeaderOption
-          avatar={
-            "https://th.bing.com/th/id/OIP.s_pUp7JneChaO4J5nsHC9wAAAA?w=136&h=152&c=7&r=0&o=5&pid=1.7"
-          }
-          title={"Me"}
-          onClick={logoutApp}
-        />
+        <HeaderOption title={user?.displayName} onClick={logoutApp} avatar />
       </div>
     </div>
   );
