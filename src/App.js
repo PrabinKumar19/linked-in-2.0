@@ -9,6 +9,7 @@ import "./App.css";
 import { auth } from "./firebase";
 
 function App() {
+  // 2:51:07
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
