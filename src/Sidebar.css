@@ -61,6 +61,7 @@
 .sidebar__top > h4 {
   color: gray;
   font-size: 12px;
+  padding: 0 10px;
 }
 
 .sidebar__top > h2 {
